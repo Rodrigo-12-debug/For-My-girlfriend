@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Grecia</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>¡Hola Grecia!, soy Rodrigo.</h1>
+            <p>Oye...Te tengo una pregunta...</p>
+        </div>
+        <form onsubmit="return handleResponse(event)">
+            <label for="respuesta">¿Tú me amas? (si/no):</label><br>
+            <input type="text" id="respuesta" name="respuesta"><br>
+            <button type="submit">Responder</button>
+        </form>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        function handleResponse(event) {
+            event.preventDefault();
+            const respuesta = document.getElementById('respuesta').value.trim().toLowerCase();
+            const messageDiv = document.getElementById('message');
+            messageDiv.classList.remove('fade-in');
+            messageDiv.offsetWidth;
+            messageDiv.innerHTML = '';
+
+            if (respuesta === 'si') {
+                messageDiv.innerHTML = `
+                    <p>Yo también te amo ❤️</p>
+                    <p>Tú fuiste lo mejor de este año</p> 
+                    <div class="image-gallery">
+                        <img src="/Nosotros.jpg" alt="Imagen de ustedes juntos">
+                        <img src="/Imagen2.jpg" alt="Imagen de ustedes juntos">
+                        <img src="/Imagen3.jpg" alt="Imagen de ustedes juntos">
+                        <img src="/Imagen4.jpg" alt="Imagen de ustedes juntos">
+                        <img src="/Imagen5.jpg" alt="Imagen de ustedes juntos">
+                        <img src="/Imagen6.jpg" alt="Imagen de ustedes juntos">
+                        <img src="/Imagen7.jpg" alt="Imagen de ustedes juntos">
+                        <img src="/Imagen8.jpg" alt="Imagen de ustedes juntos">
+                        <img src="/Imagen9.jpg" alt="Imagen de ustedes juntos">
+                        <img src="/Imagen10.jpg" alt="Imagen de ustedes juntos">
+                    </div>
+                `;
+            } else if (respuesta === 'no') {
+                messageDiv.innerHTML = `<p>No importa, yo te seguiré amando toda la vida... lol que mal XD</p>`;
+            } else {
+                messageDiv.innerHTML = `<p>No entendí, pero te amo.</p>`;
+            }
+            
+            messageDiv.classList.add('fade-in');
+        }
+    </script>
+</body>
+</html>
